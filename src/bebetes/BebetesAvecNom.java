@@ -2,30 +2,33 @@ package bebetes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 
+import bebetes.Bebete;
+import util.DistancesEtDirections;
 import visu.Champ;
+import visu.Dirigeable;
+import visu.Positionnable;
 
-public class BebetesDeco extends Bebete {
+public class BebetesAvecNom extends Bebete {
 
 	private Bebete bebete;
+	private String nom;
 
-	public BebetesDeco(Bebete bebete) {
+	public BebetesAvecNom(Bebete bebete, String nom) {
 		this.bebete = bebete;
+		this.nom = nom;
+
 	}
 
-	@Override
-	public void calculeDeplacementAFaire() {
-		bebete.calculeDeplacementAFaire();
-	}
-
-	@Override
-	public void effectueDeplacement() {
-		bebete.effectueDeplacement();
-
+	public Bebete getBebete() {
+		return bebete;
 	}
 
 	@Override
 	public double getX() {
+		// TODO Auto-generated method stub
 		return bebete.getX();
 	}
 
@@ -37,6 +40,7 @@ public class BebetesDeco extends Bebete {
 
 	@Override
 	public double getY() {
+		// TODO Auto-generated method stub
 		return bebete.getY();
 	}
 
@@ -48,11 +52,13 @@ public class BebetesDeco extends Bebete {
 
 	@Override
 	public Champ getChamp() {
+		// TODO Auto-generated method stub
 		return bebete.getChamp();
 	}
 
 	@Override
 	public double getVitesseCourante() {
+		// TODO Auto-generated method stub
 		return bebete.getVitesseCourante();
 	}
 
@@ -64,6 +70,7 @@ public class BebetesDeco extends Bebete {
 
 	@Override
 	public double getDirectionCourante() {
+		// TODO Auto-generated method stub
 		return bebete.getDirectionCourante();
 	}
 
@@ -81,8 +88,13 @@ public class BebetesDeco extends Bebete {
 
 	@Override
 	public void seDessine(Graphics g) {
-		// TODO Auto-generated method stub
+		int x = (int) bebete.getX();
+		int y = (int) bebete.getY();
 		bebete.seDessine(g);
+
+		g.setColor(Color.BLACK);
+		g.drawString(nom, (int) bebete.getX(), (int) bebete.getY());
+
 	}
 
 	@Override
@@ -108,6 +120,22 @@ public class BebetesDeco extends Bebete {
 		// TODO Auto-generated method stub
 		bebete.setChampDeVue(cDV);
 	}
-	
+
+	@Override
+	public void calculeDeplacementAFaire() {
+		bebete.calculeDeplacementAFaire();
+
+	}
+
+	@Override
+	public void effectueDeplacement() {
+		bebete.effectueDeplacement();
+
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return bebete.equals(o);
+	}
 
 }

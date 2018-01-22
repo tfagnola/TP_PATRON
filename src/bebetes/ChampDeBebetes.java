@@ -73,8 +73,8 @@ public class ChampDeBebetes extends VisualisateurAnime {
 				}
 			}
 			// Le fameux de la capture impossible du joker ?
-			nouvBebetes.add(new BebetesDeco(new BebeteEmergente(this, x, y, direction, vitesse,
-					new Color(r, g, b))));
+			nouvBebetes.add(new BebetesAvecNom(new BebetesAvecEcho(new BebetesDeco(new BebeteEmergente(this, x, y, direction, vitesse,
+					new Color(r, g, b)))), "bebete "+i));
 		}
 		return nouvBebetes;
 	}
